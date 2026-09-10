@@ -122,6 +122,7 @@ section,
   font-size: 14px;
   color: var(--ink);
   text-transform: uppercase;
+  text-shadow: 0 0 10px var(--cream-soft), 0 0 4px var(--cream-soft);
 }
 
 .hero__ornament {
@@ -130,10 +131,10 @@ section,
   width: 160px;
   height: 12px;
   margin: 22px auto;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  filter: drop-shadow(0 0 3px var(--cream-soft));
 }
 .hero__ornament::before,
 .hero__ornament::after {
