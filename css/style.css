@@ -370,14 +370,14 @@ section,
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold-light);
-  opacity: 0.75;
+  color: var(--gold-dark);
+  opacity: 0.9;
   margin: 0;
 }
 .hero__scroll-line {
   width: 1px;
   height: 34px;
-  background: linear-gradient(180deg, var(--gold), transparent);
+  background: linear-gradient(180deg, var(--gold-dark), transparent);
   animation: scrollLine 1.8s ease-in-out infinite;
 }
 @keyframes scrollLine {
