@@ -1,0 +1,962 @@
+/* ============ ШРИФТТЕР ============ */
+@font-face {
+  font-family: 'TT Nooks Script';
+  src: url('../assets/fonts/TTNooksScript-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TT Nooks Script';
+  src: url('../assets/fonts/TTNooksScript-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TT Nooks Script';
+  src: url('../assets/fonts/TTNooksScript-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TT Nooks Script';
+  src: url('../assets/fonts/TTNooksScript-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TT Ricordi Marmo';
+  src: url('../assets/fonts/TTRicordiMarmo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TT Livret Subhead';
+  src: url('../assets/fonts/TTLivretSubhead-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TT Livret Subhead';
+  src: url('../assets/fonts/TTLivretSubhead-DemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'TT Livret Subhead';
+  src: url('../assets/fonts/TTLivretSubhead-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ============ ТҮС ПАЛИТРАСЫ ============ */
+:root {
+  --burgundy-deep: #3d1420;
+  --burgundy: #5a1c2c;
+  --burgundy-light: #7a2b3d;
+  --cream: #f7f0e4;
+  --cream-soft: #fbf7ef;
+  --gold: #c9a24a;
+  --gold-light: #e6c98a;
+  --gold-dark: #9c7a30;
+  --ink: #3a2a22;
+  --ink-soft: #6b5748;
+  --shadow: rgba(61, 20, 32, 0.25);
+  --velvet-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg fill='none' stroke='%237a2b3d' stroke-width='1.1' opacity='0.4'%3E%3Cpath d='M120 120 C108 95 108 65 120 46 C132 65 132 95 120 120Z'/%3E%3Cpath d='M120 120 C108 95 108 65 120 46 C132 65 132 95 120 120Z' transform='rotate(60 120 120)'/%3E%3Cpath d='M120 120 C108 95 108 65 120 46 C132 65 132 95 120 120Z' transform='rotate(120 120 120)'/%3E%3Cpath d='M120 120 C108 95 108 65 120 46 C132 65 132 95 120 120Z' transform='rotate(180 120 120)'/%3E%3Cpath d='M120 120 C108 95 108 65 120 46 C132 65 132 95 120 120Z' transform='rotate(240 120 120)'/%3E%3Cpath d='M120 120 C108 95 108 65 120 46 C132 65 132 95 120 120Z' transform='rotate(300 120 120)'/%3E%3Ccircle cx='120' cy='120' r='5'/%3E%3Ccircle cx='120' cy='120' r='18'/%3E%3Cpath d='M0 48 Q20 48 20 28 Q20 8 0 8'/%3E%3Ccircle cx='20' cy='28' r='2.2'/%3E%3Cpath d='M240 48 Q220 48 220 28 Q220 8 240 8'/%3E%3Ccircle cx='220' cy='28' r='2.2'/%3E%3Cpath d='M0 192 Q20 192 20 212 Q20 232 0 232'/%3E%3Ccircle cx='20' cy='212' r='2.2'/%3E%3Cpath d='M240 192 Q220 192 220 212 Q220 232 240 232'/%3E%3Ccircle cx='220' cy='212' r='2.2'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'TT Livret Subhead', 'PT Serif', Georgia, serif;
+  overflow-x: hidden;
+}
+
+body.locked {
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  margin: 0;
+}
+
+a { text-decoration: none; }
+
+/* ============ КОНВЕРТ ============ */
+.envelope {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: var(--velvet-pattern), radial-gradient(ellipse at 50% 30%, var(--burgundy-light) 0%, var(--burgundy) 55%, var(--burgundy-deep) 100%);
+  background-size: 240px 240px, auto;
+  background-repeat: repeat, no-repeat;
+  perspective: 1600px;
+  transition: opacity 0.7s ease 0.55s, visibility 0.7s ease 0.55s;
+}
+
+.envelope__scene {
+  position: relative;
+  width: min(86vw, 380px);
+  aspect-ratio: 3 / 4;
+  transform-style: preserve-3d;
+}
+
+.envelope__body {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.08));
+  border: 1px solid rgba(230, 201, 138, 0.25);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 14%;
+  box-shadow: 0 30px 60px var(--shadow);
+}
+
+.envelope__triangle-left,
+.envelope__triangle-right {
+  position: absolute;
+  top: 0;
+  width: 52%;
+  height: 100%;
+  background: rgba(0,0,0,0.10);
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  opacity: 0.5;
+}
+.envelope__triangle-left { left: 0; }
+.envelope__triangle-right { right: 0; transform: scaleX(-1); }
+
+.envelope__inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--gold-light);
+  padding: 0 12px;
+}
+
+.envelope__eyebrow {
+  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  letter-spacing: 0.35em;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  opacity: 0.85;
+}
+
+.envelope__monogram {
+  font-family: 'Bad Script', 'TT Nooks Script', cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(36px, 10vw, 48px);
+  color: var(--cream-soft);
+}
+.envelope__monogram span {
+  color: var(--gold);
+  padding: 0 5px;
+  font-style: normal;
+}
+
+.envelope__date {
+  margin-top: 8px;
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  color: var(--gold-light);
+  opacity: 0.85;
+}
+
+.envelope__flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 62%;
+  clip-path: polygon(0 0, 100% 0, 50% 78%);
+  background: linear-gradient(160deg, var(--burgundy-light), var(--burgundy) 60%, var(--burgundy-deep));
+  border-radius: 14px 14px 0 0;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  transition: transform 0.9s cubic-bezier(.6,.1,.2,1), box-shadow 0.9s ease;
+  z-index: 3;
+}
+
+.envelope__seal {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  width: 68px;
+  height: 68px;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.envelope__seal svg { width: 100%; height: 100%; }
+
+.envelope__hint {
+  margin-top: 34px;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: var(--gold-light);
+  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  transition: opacity 0.4s ease;
+}
+
+.tap-icon {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  animation: tapPulse 1.6s ease-in-out infinite;
+}
+.tap-icon svg { width: 100%; height: 100%; }
+
+@keyframes tapPulse {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(4px) scale(0.94); }
+}
+
+.spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  opacity: 0;
+  animation: sparkFly 1.6s ease-in-out infinite;
+}
+.spark--1 { top: -6px; left: -6px; animation-delay: 0s; }
+.spark--2 { top: -10px; left: 14px; animation-delay: 0.25s; }
+.spark--3 { top: -2px; left: 30px; animation-delay: 0.5s; }
+
+@keyframes sparkFly {
+  0% { opacity: 0; transform: scale(0.4) translateY(4px); }
+  40% { opacity: 1; }
+  100% { opacity: 0; transform: scale(1) translateY(-10px); }
+}
+
+/* ---- ашылу анимациясы ---- */
+.envelope.is-opening .envelope__flap {
+  transform: rotateX(180deg);
+}
+.envelope.is-opening .envelope__seal {
+  transform: translate(-50%, -50%) scale(0.2);
+  opacity: 0;
+}
+.envelope.is-opening .envelope__hint {
+  opacity: 0;
+  pointer-events: none;
+}
+.envelope.is-opening .envelope__triangle-left {
+  transition: transform 0.7s ease 0.35s, opacity 0.7s ease 0.35s;
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.envelope.is-opening .envelope__triangle-right {
+  transition: transform 0.7s ease 0.35s, opacity 0.7s ease 0.35s;
+  transform: scaleX(-1) translateX(-100%);
+  opacity: 0;
+}
+.envelope.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ============ НЕГІЗГІ САЙТ ============ */
+.site {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--cream);
+  min-height: 100vh;
+}
+
+section,
+.footer {
+  padding: 64px 28px;
+  text-align: center;
+  position: relative;
+}
+
+.section-title {
+  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin: 0 0 32px;
+}
+
+/* ---- Hero ---- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--burgundy-deep) 0%, var(--burgundy) 55%, var(--cream) 100%);
+  color: var(--cream-soft);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--velvet-pattern);
+  background-size: 240px 240px;
+  background-repeat: repeat;
+  -webkit-mask-image: linear-gradient(180deg, black 0%, black 55%, transparent 85%);
+  mask-image: linear-gradient(180deg, black 0%, black 55%, transparent 85%);
+  pointer-events: none;
+}
+
+.hero__eyebrow {
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--gold-light);
+  margin-bottom: 18px;
+}
+
+.hero__names {
+  position: relative;
+  z-index: 1;
+  font-family: 'Bad Script', 'TT Nooks Script', cursive;
+  font-style: normal;
+  font-size: clamp(56px, 17vw, 84px);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--cream-soft);
+}
+.hero__names span {
+  display: block;
+  font-style: normal;
+  font-size: 0.6em;
+  color: var(--gold);
+  margin: 6px 0;
+}
+
+.hero__date {
+  position: relative;
+  z-index: 1;
+  margin-top: 22px;
+  letter-spacing: 0.25em;
+  font-size: 14px;
+  color: var(--gold-light);
+  text-transform: uppercase;
+}
+
+.hero__ornament {
+  position: relative;
+  z-index: 1;
+  width: 160px;
+  height: 12px;
+  margin: 22px auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__ornament::before,
+.hero__ornament::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 62px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 100%);
+  opacity: 0.7;
+}
+.hero__ornament::before { left: 0; }
+.hero__ornament::after { right: 0; transform: scaleX(-1); }
+.hero__ornament span {
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  opacity: 0.85;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.hero__scroll p {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  opacity: 0.75;
+  margin: 0;
+}
+.hero__scroll-line {
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+  animation: scrollLine 1.8s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0% { opacity: 0.2; transform: scaleY(0.4); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+  100% { opacity: 0.2; transform: scaleY(0.4); transform-origin: top; }
+}
+
+/* ---- Greeting ---- */
+.greeting {
+  background: var(--cream-soft);
+}
+/* ---- Шақыру картасы (invite-card) ---- */
+.invite-card {
+  position: relative;
+  max-width: 290px;
+  margin: 10px auto 60px;
+  background-color: var(--cream-soft);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cg fill='none' stroke='%23c9a24a' stroke-width='1' opacity='0.28'%3E%3Cpath d='M14 78 Q24 58 14 38 Q4 58 14 78Z'/%3E%3Cpath d='M45 82 Q50 66 45 50'/%3E%3Ccircle cx='68' cy='22' r='2.6'/%3E%3Cpath d='M68 22 Q78 16 84 26'/%3E%3Cpath d='M68 22 Q58 16 52 26'/%3E%3Cpath d='M20 14 Q28 8 36 14'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 90px 90px;
+  border: 1.5px solid var(--gold);
+  border-radius: 120px 120px 14px 14px / 64px 64px 14px 14px;
+  padding: 54px 26px 40px;
+  box-shadow: 0 18px 36px var(--shadow);
+}
+.invite-card::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--gold);
+  border-radius: inherit;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.invite-card__finial {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 16px;
+  background: var(--gold);
+  opacity: 0.8;
+}
+.invite-card__finial span {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.invite-card__title {
+  position: relative;
+  z-index: 1;
+  font-family: 'Bad Script', 'TT Nooks Script', cursive;
+  font-size: 30px;
+  line-height: 1.3;
+  color: var(--burgundy);
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.invite-card__time {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 0 18px;
+  color: var(--gold-dark);
+}
+.invite-card__time svg {
+  width: 15px;
+  height: 15px;
+}
+.invite-card__time span {
+  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+}
+.invite-card__text {
+  position: relative;
+  z-index: 1;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink);
+  text-align: center;
+  margin: 0 0 26px;
+}
+.invite-card__text strong {
+  color: var(--burgundy);
+  font-weight: 600;
+}
+
+.mini-calendar {
+  position: relative;
+  z-index: 1;
+  max-width: 250px;
+  margin: 0 auto 16px;
+}
+.mini-calendar__row {
+  display: flex;
+  justify-content: space-between;
+}
+.mini-calendar__row--labels span {
+  display: inline-block;
+  width: 28px;
+  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--gold-dark);
+  text-align: center;
+}
+.mini-calendar__row--dates {
+  margin-top: 10px;
+}
+.mini-calendar__row--dates span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.mini-calendar__heart {
+  position: relative;
+  color: var(--burgundy) !important;
+}
+.mini-calendar__heart em {
+  font-style: normal;
+  font-weight: 700;
+}
+.mini-calendar__heart svg {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--burgundy);
+  opacity: 0.85;
+}
+
+.invite-card__month {
+  position: relative;
+  z-index: 1;
+  font-family: 'Bad Script', 'TT Nooks Script', cursive;
+  font-size: 26px;
+  color: var(--gold-dark);
+  text-align: center;
+  margin: 0;
+}
+
+.invite-card__hosts {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin: 22px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(201,162,74,0.35);
+}
+.invite-card__hosts-label {
+  margin: 0 0 6px;
+  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+.invite-card__hosts-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--burgundy);
+}
+.invite-card__hosts-value svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+.invite-card__hosts-value span {
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.invite-card__drape {
+  position: absolute;
+  left: -1.5px;
+  right: -1.5px;
+  bottom: -34px;
+  width: calc(100% + 3px);
+  height: 64px;
+  filter: drop-shadow(0 10px 14px var(--shadow));
+}
+
+/* ---- Countdown ---- */
+.countdown {
+  background: var(--cream);
+}
+.countdown__grid {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+.countdown__item {
+  background: var(--burgundy);
+  color: var(--cream-soft);
+  border-radius: 12px;
+  padding: 16px 10px;
+  min-width: 68px;
+  box-shadow: 0 10px 24px var(--shadow);
+  border: 1px solid rgba(201,162,74,0.35);
+}
+.countdown__item span {
+  display: block;
+  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+.countdown__item small {
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+/* ---- Details ---- */
+.details {
+  background: var(--cream-soft);
+}
+.details__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+  background: #fff;
+  border: 1px solid rgba(201,162,74,0.3);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 20px rgba(61,20,32,0.06);
+}
+.venue-card {
+  position: relative;
+  background: #fff;
+  border: 1.5px solid var(--gold);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 26px var(--shadow);
+}
+.venue-card::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px solid var(--gold);
+  border-radius: 11px;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 2;
+}
+.venue-card__photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+.venue-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.venue-card__photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(61,20,32,0.05), rgba(61,20,32,0.25));
+}
+.venue-card__body {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+  padding: 18px;
+}
+.details__icon {
+  width: 34px;
+  height: 34px;
+  flex: none;
+}
+.details__icon svg { width: 100%; height: 100%; }
+.details__label {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+.details__value {
+  margin: 4px 0 0;
+  font-size: 17px;
+  color: var(--ink);
+}
+.details__map-btn {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--burgundy);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 2px;
+}
+
+/* ---- RSVP анкетасы ---- */
+.rsvp {
+  background: var(--cream);
+}
+.rsvp-card {
+  position: relative;
+  max-width: 340px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1.5px solid var(--gold);
+  border-radius: 16px;
+  padding: 26px 22px;
+  text-align: left;
+  box-shadow: 0 10px 26px var(--shadow);
+}
+.rsvp-card__deadline {
+  margin: 0 0 22px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--gold-dark);
+  letter-spacing: 0.02em;
+}
+.rsvp-form__field {
+  display: block;
+  margin-bottom: 20px;
+}
+.rsvp-form__field > span {
+  display: block;
+  margin-bottom: 10px;
+  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+.rsvp-form__field input[type="text"] {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(201,162,74,0.5);
+  background: transparent;
+  font-family: 'TT Livret Subhead', 'PT Serif', serif;
+  font-size: 15px;
+  color: var(--ink);
+  padding: 6px 2px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.rsvp-form__field input[type="text"]::placeholder {
+  color: var(--ink-soft);
+  opacity: 0.5;
+}
+.rsvp-form__field input[type="text"]:focus {
+  border-bottom-color: var(--burgundy);
+}
+
+.rsvp-form__options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rsvp-form__options--wrap {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+.rsvp-form__option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--ink);
+}
+.rsvp-form__option input {
+  accent-color: var(--burgundy);
+  width: 16px;
+  height: 16px;
+  flex: none;
+  cursor: pointer;
+}
+.rsvp-form__option--checkbox {
+  background: var(--cream-soft);
+  border: 1px solid rgba(201,162,74,0.35);
+  border-radius: 20px;
+  padding: 6px 12px 6px 8px;
+  font-size: 13px;
+}
+
+.rsvp-form__submit {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  background: var(--burgundy);
+  color: var(--gold-light);
+  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+.rsvp-form__submit:hover { background: var(--burgundy-deep); }
+.rsvp-form__submit:active { transform: scale(0.98); }
+
+.rsvp-form__thanks {
+  text-align: center;
+  padding: 20px 0;
+}
+.rsvp-form__thanks svg {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 14px;
+}
+.rsvp-form__thanks p {
+  margin: 0;
+  font-family: 'Bad Script', 'TT Nooks Script', cursive;
+  font-size: 22px;
+  color: var(--burgundy);
+}
+
+/* ---- Footer ---- */
+.footer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--burgundy-deep) 100%);
+  color: var(--cream-soft);
+  padding-bottom: 90px;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--velvet-pattern);
+  background-size: 240px 240px;
+  background-repeat: repeat;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 35%, black 65%);
+  mask-image: linear-gradient(180deg, transparent 0%, transparent 35%, black 65%);
+  pointer-events: none;
+}
+.footer__ornament {
+  position: relative;
+  z-index: 1;
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 22px;
+  opacity: 0.6;
+}
+.footer__names {
+  position: relative;
+  z-index: 1;
+  font-family: 'Bad Script', 'TT Nooks Script', cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 42px;
+  color: var(--gold-light);
+}
+.footer__names span { color: var(--gold); padding: 0 6px; font-style: normal; }
+.footer__thanks {
+  position: relative;
+  z-index: 1;
+  margin-top: 8px;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+/* ============ МУЗЫКА БАТЫРМАСЫ ============ */
+.music-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,162,74,0.5);
+  background: var(--burgundy);
+  color: var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 500;
+  box-shadow: 0 10px 24px var(--shadow);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+.music-btn:active { transform: scale(0.92); }
+.music-btn__icon { width: 22px; height: 22px; transition: transform 0.4s ease; }
+.music-btn.is-playing {
+  background: var(--gold-dark);
+  color: var(--burgundy-deep);
+}
+.music-btn.is-playing .music-btn__icon {
+  animation: spinNote 3s linear infinite;
+}
+@keyframes spinNote {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 380px) {
+  section { padding: 52px 20px; }
+  .countdown__item { min-width: 60px; padding: 14px 8px; }
+}
