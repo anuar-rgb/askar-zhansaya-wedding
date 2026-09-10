@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* ===== КОНВЕРТТІ АШУ ===== */
-  const envelope = document.getElementById('envelope');
-  const hint = document.getElementById('envelopeHint');
-  const body = document.body;
-
   /* ===== МУЗЫКА ===== */
   const musicBtn = document.getElementById('musicBtn');
   const music = document.getElementById('bgMusic');
@@ -16,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
       musicBtn.classList.add('is-playing');
       musicBtn.setAttribute('aria-pressed', 'true');
     }).catch(() => {
-      // Әуен файлы әлі қосылмаған (assets/music/song.mp3)
-      console.warn('Әуен файлы табылмады: assets/music/song.mp3');
+      // Браузер жүктелу кезінде дыбысты автоматты қосуға рұқсат бермеді —
+      // қолданушы бетті бірінші рет түртken/басқанда қайта көреміз.
     });
   }
 
@@ -28,24 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     musicBtn.setAttribute('aria-pressed', 'false');
   }
 
-  body.classList.add('locked');
+  playMusic();
 
-  function openEnvelope() {
-    if (envelope.classList.contains('is-opening')) return;
-    envelope.classList.add('is-opening');
-    playMusic();
-
-    setTimeout(() => {
-      envelope.classList.add('is-hidden');
-      body.classList.remove('locked');
-    }, 1250);
-  }
-
-  hint.addEventListener('click', openEnvelope);
-  envelope.addEventListener('click', (e) => {
-    if (e.target === envelope || e.target.closest('.envelope__scene')) {
-      openEnvelope();
-    }
+  ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach((evt) => {
+    document.addEventListener(evt, () => {
+      if (!isPlaying) playMusic();
+    }, { once: true, passive: true });
   });
 
   /* ===== КЕРІ САНАУЫШ ===== */
