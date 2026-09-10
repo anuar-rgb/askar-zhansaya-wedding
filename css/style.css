@@ -71,10 +71,6 @@ a { text-decoration: none; }
   background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.08));
   border: 1px solid rgba(230, 201, 138, 0.25);
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 14%;
   box-shadow: 0 30px 60px var(--shadow);
 }
 
@@ -92,7 +88,12 @@ a { text-decoration: none; }
 .envelope__triangle-right { right: 0; transform: scaleX(-1); }
 
 .envelope__inner {
-  position: relative;
+  /* Мөр мен қаусырманың ұшынан төмен кепілдендірілген орында тұрады —
+     мәтін биіктігі қанша болса да мөрмен қиылыспайды. */
+  position: absolute;
+  top: 67%;
+  left: 0;
+  right: 0;
   z-index: 2;
   text-align: center;
   color: var(--gold-light);
@@ -104,7 +105,7 @@ a { text-decoration: none; }
   letter-spacing: 0.35em;
   font-size: 11px;
   text-transform: uppercase;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   opacity: 0.85;
 }
 
@@ -112,7 +113,8 @@ a { text-decoration: none; }
   font-family: 'Bad Script', cursive;
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(36px, 10vw, 48px);
+  font-size: clamp(26px, 9vw, 48px);
+  white-space: nowrap;
   color: var(--cream-soft);
 }
 .envelope__monogram span {
@@ -147,7 +149,7 @@ a { text-decoration: none; }
 
 .envelope__seal {
   position: absolute;
-  top: 58%;
+  top: 49%;
   left: 50%;
   width: 68px;
   height: 68px;
