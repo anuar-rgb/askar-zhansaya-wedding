@@ -468,6 +468,18 @@ section,
   font-size: 15px;
   letter-spacing: 0.1em;
 }
+.invite-card__addressees {
+  position: relative;
+  z-index: 1;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-align: center;
+  margin: 0 0 18px;
+}
+
 .invite-card__text {
   position: relative;
   z-index: 1;
@@ -565,6 +577,9 @@ section,
   gap: 8px;
   color: var(--burgundy);
 }
+.invite-card__hosts-value + .invite-card__hosts-value {
+  margin-top: 10px;
+}
 .invite-card__hosts-value svg {
   width: 18px;
   height: 18px;
@@ -573,6 +588,17 @@ section,
 .invite-card__hosts-value span {
   font-size: 15px;
   color: var(--ink);
+}
+
+.invite-card__closing {
+  position: relative;
+  z-index: 1;
+  margin: 22px 0 0;
+  font-family: 'Bad Script', cursive;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--burgundy);
+  text-align: center;
 }
 
 .invite-card__drape {
