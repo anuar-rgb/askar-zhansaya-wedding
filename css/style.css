@@ -1,60 +1,6 @@
-/* ============ ШРИФТТЕР ============ */
-@font-face {
-  font-family: 'TT Nooks Script';
-  src: url('../assets/fonts/TTNooksScript-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'TT Nooks Script';
-  src: url('../assets/fonts/TTNooksScript-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'TT Nooks Script';
-  src: url('../assets/fonts/TTNooksScript-Black.otf') format('opentype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'TT Nooks Script';
-  src: url('../assets/fonts/TTNooksScript-Light.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'TT Ricordi Marmo';
-  src: url('../assets/fonts/TTRicordiMarmo-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'TT Livret Subhead';
-  src: url('../assets/fonts/TTLivretSubhead-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'TT Livret Subhead';
-  src: url('../assets/fonts/TTLivretSubhead-DemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'TT Livret Subhead';
-  src: url('../assets/fonts/TTLivretSubhead-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
+/* ============ ШРИФТТЕР ============
+   Тек тегін/ашық лицензиялы шрифтер қолданылады (Google Fonts),
+   өйткені сайт жалпыға қолжетімді жарияланады. */
 
 /* ============ ТҮС ПАЛИТРАСЫ ============ */
 :root {
@@ -79,7 +25,7 @@ html, body {
   padding: 0;
   background: var(--cream);
   color: var(--ink);
-  font-family: 'TT Livret Subhead', 'PT Serif', Georgia, serif;
+  font-family: 'PT Serif', Georgia, serif;
   overflow-x: hidden;
 }
 
@@ -154,7 +100,7 @@ a { text-decoration: none; }
 }
 
 .envelope__eyebrow {
-  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
   letter-spacing: 0.35em;
   font-size: 11px;
   text-transform: uppercase;
@@ -163,7 +109,7 @@ a { text-decoration: none; }
 }
 
 .envelope__monogram {
-  font-family: 'Bad Script', 'TT Nooks Script', cursive;
+  font-family: 'Bad Script', cursive;
   font-style: normal;
   font-weight: 400;
   font-size: clamp(36px, 10vw, 48px);
@@ -222,7 +168,7 @@ a { text-decoration: none; }
   gap: 10px;
   cursor: pointer;
   color: var(--gold-light);
-  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
   letter-spacing: 0.2em;
   font-size: 12px;
   text-transform: uppercase;
@@ -306,7 +252,7 @@ section,
 }
 
 .section-title {
-  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 13px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -352,7 +298,7 @@ section,
 .hero__names {
   position: relative;
   z-index: 1;
-  font-family: 'Bad Script', 'TT Nooks Script', cursive;
+  font-family: 'Bad Script', cursive;
   font-style: normal;
   font-size: clamp(56px, 17vw, 84px);
   font-weight: 400;
@@ -487,7 +433,7 @@ section,
 .invite-card__title {
   position: relative;
   z-index: 1;
-  font-family: 'Bad Script', 'TT Nooks Script', cursive;
+  font-family: 'Bad Script', cursive;
   font-size: 30px;
   line-height: 1.3;
   color: var(--burgundy);
@@ -510,7 +456,7 @@ section,
   height: 15px;
 }
 .invite-card__time span {
-  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 15px;
   letter-spacing: 0.1em;
 }
@@ -541,7 +487,7 @@ section,
 .mini-calendar__row--labels span {
   display: inline-block;
   width: 28px;
-  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 11px;
   letter-spacing: 0.03em;
   color: var(--gold-dark);
@@ -581,7 +527,7 @@ section,
 .invite-card__month {
   position: relative;
   z-index: 1;
-  font-family: 'Bad Script', 'TT Nooks Script', cursive;
+  font-family: 'Bad Script', cursive;
   font-size: 26px;
   color: var(--gold-dark);
   text-align: center;
@@ -598,7 +544,7 @@ section,
 }
 .invite-card__hosts-label {
   margin: 0 0 6px;
-  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -651,7 +597,7 @@ section,
 }
 .countdown__item span {
   display: block;
-  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 26px;
   font-weight: 600;
   color: var(--gold-light);
@@ -781,7 +727,7 @@ section,
 .rsvp-form__field > span {
   display: block;
   margin-bottom: 10px;
-  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -792,7 +738,7 @@ section,
   border: none;
   border-bottom: 1px solid rgba(201,162,74,0.5);
   background: transparent;
-  font-family: 'TT Livret Subhead', 'PT Serif', serif;
+  font-family: 'PT Serif', serif;
   font-size: 15px;
   color: var(--ink);
   padding: 6px 2px;
@@ -812,11 +758,6 @@ section,
   flex-direction: column;
   gap: 10px;
 }
-.rsvp-form__options--wrap {
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 8px 10px;
-}
 .rsvp-form__option {
   display: flex;
   align-items: center;
@@ -832,13 +773,6 @@ section,
   flex: none;
   cursor: pointer;
 }
-.rsvp-form__option--checkbox {
-  background: var(--cream-soft);
-  border: 1px solid rgba(201,162,74,0.35);
-  border-radius: 20px;
-  padding: 6px 12px 6px 8px;
-  font-size: 13px;
-}
 
 .rsvp-form__submit {
   display: block;
@@ -849,7 +783,7 @@ section,
   border-radius: 30px;
   background: var(--burgundy);
   color: var(--gold-light);
-  font-family: 'TT Ricordi Marmo', 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 13px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -870,7 +804,7 @@ section,
 }
 .rsvp-form__thanks p {
   margin: 0;
-  font-family: 'Bad Script', 'TT Nooks Script', cursive;
+  font-family: 'Bad Script', cursive;
   font-size: 22px;
   color: var(--burgundy);
 }
@@ -906,7 +840,7 @@ section,
 .footer__names {
   position: relative;
   z-index: 1;
-  font-family: 'Bad Script', 'TT Nooks Script', cursive;
+  font-family: 'Bad Script', cursive;
   font-style: normal;
   font-weight: 400;
   font-size: 42px;

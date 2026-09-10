@@ -85,6 +85,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const rsvpForm = document.getElementById('rsvpForm');
   const rsvpThanks = document.getElementById('rsvpThanks');
 
+  // Google Форма: "Асқар & Жансая той" (Аты-жөніңіз + Тойға қатысасыз ба?)
+  const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLScxtngz_7GKIAofLwalD2mwXPWMqvwHbEKAFhzmkk7Yt7JfoQ/formResponse';
+  const GOOGLE_FORM_ENTRIES = {
+    name: 'entry.58792504',
+    attendance: 'entry.1386504533'
+  };
+  const ATTENDANCE_LABELS = {
+    yes: 'Иә, келемін',
+    no: 'Өкінішке орай, келе алмаймын'
+  };
+
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -93,15 +104,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const response = {
         name: formData.get('name'),
         attendance: formData.get('attendance'),
-        drinks: formData.getAll('drink'),
         submittedAt: new Date().toISOString()
       };
 
-      // Әзірге жауаптар осы құрылғыда localStorage-та сақталады.
-      // Сайт іске қосылғанда мұны нақты қабылдау арнасына (Telegram/WhatsApp/Google Sheets) жалғау керек.
+      // Сақтық көшірме: жауап осы құрылғыда localStorage-та да қалады.
       const stored = JSON.parse(localStorage.getItem('rsvpResponses') || '[]');
       stored.push(response);
       localStorage.setItem('rsvpResponses', JSON.stringify(stored));
+
+      const params = new URLSearchParams();
+      params.append(GOOGLE_FORM_ENTRIES.name, response.name || '');
+      params.append(GOOGLE_FORM_ENTRIES.attendance, ATTENDANCE_LABELS[response.attendance] || '');
+
+      // Google Форма CORS жауап қайтармайды, сондықтан no-cors қолданамыз:
+      // сұраныс жетеді, бірақ жауапты оқи алмаймыз — сол себепті сәтті деп есептейміз.
+      fetch(GOOGLE_FORM_ACTION, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      }).catch(() => {
+        console.warn('Google Форманы жіберу сәтсіз аяқталды, тек localStorage-та сақталды.');
+      });
 
       rsvpForm.hidden = true;
       rsvpThanks.hidden = false;
