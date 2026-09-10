@@ -449,25 +449,6 @@ section,
   margin: 0 0 10px;
 }
 
-.invite-card__time {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin: 0 0 18px;
-  color: var(--gold-dark);
-}
-.invite-card__time svg {
-  width: 15px;
-  height: 15px;
-}
-.invite-card__time span {
-  font-family: 'Playfair Display', serif;
-  font-size: 15px;
-  letter-spacing: 0.1em;
-}
 .invite-card__addressees {
   position: relative;
   z-index: 1;
@@ -704,6 +685,11 @@ section,
   gap: 16px;
   text-align: left;
   padding: 18px;
+}
+.venue-card__body--time {
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid rgba(201,162,74,0.3);
 }
 .details__icon {
   width: 34px;
