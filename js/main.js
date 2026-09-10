@@ -4,11 +4,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const hint = document.getElementById('envelopeHint');
   const body = document.body;
 
+  /* ===== МУЗЫКА ===== */
+  const musicBtn = document.getElementById('musicBtn');
+  const music = document.getElementById('bgMusic');
+  let isPlaying = false;
+
+  function playMusic() {
+    if (isPlaying) return;
+    music.play().then(() => {
+      isPlaying = true;
+      musicBtn.classList.add('is-playing');
+      musicBtn.setAttribute('aria-pressed', 'true');
+    }).catch(() => {
+      // Әуен файлы әлі қосылмаған (assets/music/song.mp3)
+      console.warn('Әуен файлы табылмады: assets/music/song.mp3');
+    });
+  }
+
+  function pauseMusic() {
+    music.pause();
+    isPlaying = false;
+    musicBtn.classList.remove('is-playing');
+    musicBtn.setAttribute('aria-pressed', 'false');
+  }
+
   body.classList.add('locked');
 
   function openEnvelope() {
     if (envelope.classList.contains('is-opening')) return;
     envelope.classList.add('is-opening');
+    playMusic();
 
     setTimeout(() => {
       envelope.classList.add('is-hidden');
@@ -58,27 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  /* ===== МУЗЫКА ===== */
-  const musicBtn = document.getElementById('musicBtn');
-  const music = document.getElementById('bgMusic');
-  let isPlaying = false;
-
   musicBtn.addEventListener('click', () => {
-    if (!isPlaying) {
-      music.play().then(() => {
-        isPlaying = true;
-        musicBtn.classList.add('is-playing');
-        musicBtn.setAttribute('aria-pressed', 'true');
-      }).catch(() => {
-        // Әуен файлы әлі қосылмаған (assets/music/song.mp3)
-        console.warn('Әуен файлы табылмады: assets/music/song.mp3');
-      });
-    } else {
-      music.pause();
-      isPlaying = false;
-      musicBtn.classList.remove('is-playing');
-      musicBtn.setAttribute('aria-pressed', 'false');
-    }
+    if (!isPlaying) playMusic(); else pauseMusic();
   });
 
   /* ===== ҚОНАҚТАР АНКЕТАСЫ (RSVP) ===== */
