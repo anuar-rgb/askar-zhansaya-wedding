@@ -710,12 +710,31 @@ section,
   color: var(--ink);
 }
 .details__map-btn {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 13px;
-  color: var(--burgundy);
-  border-bottom: 1px solid var(--gold);
-  padding-bottom: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 11px 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.details__map-btn svg {
+  width: 13px;
+  height: 13px;
+  flex: none;
+  transform: rotate(-45deg);
+}
+.details__map-btn:hover,
+.details__map-btn:active {
+  background: var(--ink);
+  color: var(--cream-soft);
 }
 
 /* ---- RSVP анкетасы ---- */
