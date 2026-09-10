@@ -343,7 +343,7 @@ section,
   top: 50%;
   width: 62px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold) 100%);
+  background: linear-gradient(90deg, transparent, var(--ink) 100%);
   opacity: 0.7;
 }
 .hero__ornament::before { left: 0; }
@@ -351,7 +351,7 @@ section,
 .hero__ornament span {
   width: 7px;
   height: 7px;
-  background: var(--gold);
+  background: var(--ink);
   transform: rotate(45deg);
   opacity: 0.85;
 }
