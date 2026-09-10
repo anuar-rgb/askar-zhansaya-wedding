@@ -274,7 +274,12 @@ section,
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, var(--burgundy-deep) 0%, var(--burgundy) 55%, var(--cream) 100%);
+  background-image:
+    linear-gradient(180deg, rgba(61,20,32,0.82) 0%, rgba(90,28,44,0.68) 45%, var(--cream) 96%),
+    url('../assets/images/hero-bg.jpg');
+  background-size: auto, cover;
+  background-position: center, center 30%;
+  background-repeat: no-repeat, no-repeat;
   color: var(--cream-soft);
   min-height: 100vh;
   display: flex;
@@ -282,17 +287,6 @@ section,
   align-items: center;
   justify-content: center;
   padding: 40px 24px;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: var(--velvet-pattern);
-  background-size: 240px 240px;
-  background-repeat: repeat;
-  -webkit-mask-image: linear-gradient(180deg, black 0%, black 55%, transparent 85%);
-  mask-image: linear-gradient(180deg, black 0%, black 55%, transparent 85%);
-  pointer-events: none;
 }
 
 .hero__eyebrow {
