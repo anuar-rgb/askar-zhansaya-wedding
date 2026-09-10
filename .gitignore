@@ -1,6 +1,7 @@
 # Пробные (Trial) шрифты TypeType — лицензия не разрешает распространение
 Шрифт/
-assets/fonts/
+assets/fonts/*
+!assets/fonts/kz-decor.ttf
 
 # Исследовательские скриншоты чужого сайта (только для личного референса)
 reference/
