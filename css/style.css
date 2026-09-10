@@ -396,8 +396,6 @@ section,
   max-width: 290px;
   margin: 10px auto 60px;
   background-color: var(--cream-soft);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cg fill='none' stroke='%23c9a24a' stroke-width='1' opacity='0.28'%3E%3Cpath d='M14 78 Q24 58 14 38 Q4 58 14 78Z'/%3E%3Cpath d='M45 82 Q50 66 45 50'/%3E%3Ccircle cx='68' cy='22' r='2.6'/%3E%3Cpath d='M68 22 Q78 16 84 26'/%3E%3Cpath d='M68 22 Q58 16 52 26'/%3E%3Cpath d='M20 14 Q28 8 36 14'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 90px 90px;
   border: 1.5px solid var(--gold);
   border-radius: 120px 120px 14px 14px / 64px 64px 14px 14px;
   padding: 54px 26px 40px;
