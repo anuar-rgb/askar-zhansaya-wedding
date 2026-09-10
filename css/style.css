@@ -529,6 +529,17 @@ section,
   margin: 0;
 }
 
+.invite-card__month-time {
+  position: relative;
+  z-index: 1;
+  margin: 4px 0 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
 .invite-card__hosts {
   position: relative;
   z-index: 1;
