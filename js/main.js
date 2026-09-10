@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ===== КОНВЕРТТІ АШУ ===== */
   const envelope = document.getElementById('envelope');
   const hint = document.getElementById('envelopeHint');
+  const site = document.getElementById('site');
   const body = document.body;
 
   body.classList.add('locked');
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       envelope.classList.add('is-hidden');
       body.classList.remove('locked');
+      site.classList.add('is-revealed');
     }, 1250);
   }
 
