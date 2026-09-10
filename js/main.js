@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   const ATTENDANCE_LABELS = {
     yes: 'Иә, келемін',
+    couple: 'Жұбыммен келемін',
     no: 'Өкінішке орай, келе алмаймын'
   };
 
