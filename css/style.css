@@ -118,7 +118,7 @@ section,
 .hero__date {
   position: relative;
   z-index: 1;
-  margin-top: 170px;
+  margin-top: 205px;
   letter-spacing: 0.25em;
   font-size: 14px;
   color: var(--ink);
