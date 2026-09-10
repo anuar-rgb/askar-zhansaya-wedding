@@ -23,40 +23,20 @@
         <div class="envelope__triangle-left"></div>
         <div class="envelope__triangle-right"></div>
       </div>
-
-      <div class="envelope__seam-glow" aria-hidden="true"></div>
-
       <div class="envelope__flap"></div>
-
-      <div class="envelope__seal-glow" aria-hidden="true"></div>
       <div class="envelope__seal">
         <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="46" fill="url(#sealGrad)"/>
+          <circle cx="50" cy="50" r="46" fill="none" stroke="#8a6a2f" stroke-width="1" opacity="0.4"/>
+          <path d="M50 28c-3 6-10 8-16 6 3 6 1 13-4 17 6 1 11 6 12 12 3-5 9-8 15-7 1-6 6-11 12-12-5-4-7-11-4-17-6 2-13 0-15-6z" fill="#5b3a2a" opacity="0.55"/>
+          <circle cx="50" cy="50" r="4" fill="#5b3a2a" opacity="0.6"/>
           <defs>
-            <radialGradient id="sealGrad" cx="35%" cy="30%" r="85%">
-              <stop offset="0%" stop-color="#9c3a4a"/>
-              <stop offset="55%" stop-color="#6b1f2c"/>
-              <stop offset="100%" stop-color="#3d1420"/>
+            <radialGradient id="sealGrad" cx="35%" cy="30%" r="80%">
+              <stop offset="0%" stop-color="#e6c98a"/>
+              <stop offset="55%" stop-color="#c9a24a"/>
+              <stop offset="100%" stop-color="#9c7a30"/>
             </radialGradient>
           </defs>
-          <g fill="url(#sealGrad)">
-            <circle cx="50" cy="50" r="36"/>
-            <circle cx="90" cy="50" r="8"/>
-            <circle cx="86" cy="67.4" r="8"/>
-            <circle cx="74.9" cy="81.3" r="8"/>
-            <circle cx="58.9" cy="89" r="8"/>
-            <circle cx="41.1" cy="89" r="8"/>
-            <circle cx="25.1" cy="81.3" r="8"/>
-            <circle cx="14" cy="67.4" r="8"/>
-            <circle cx="10" cy="50" r="8"/>
-            <circle cx="14" cy="32.6" r="8"/>
-            <circle cx="25.1" cy="18.7" r="8"/>
-            <circle cx="41.1" cy="11" r="8"/>
-            <circle cx="58.9" cy="11" r="8"/>
-            <circle cx="74.9" cy="18.7" r="8"/>
-            <circle cx="86" cy="32.6" r="8"/>
-          </g>
-          <circle cx="50" cy="50" r="37" fill="none" stroke="#2a0f18" stroke-width="1.5" opacity="0.35"/>
-          <text x="50" y="59" text-anchor="middle" font-family="'Bad Script', cursive" font-size="27" fill="#e9c98f">А&amp;Ж</text>
         </svg>
       </div>
     </div>
@@ -64,7 +44,7 @@
     <button class="envelope__hint" id="envelopeHint" type="button" aria-label="Конвертті ашу">
       <span class="tap-icon">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 12.5V6a1.5 1.5 0 0 1 3 0v5m0 0V4.5a1.5 1.5 0 0 1 3 0V11m0 .3V6.8a1.5 1.5 0 0 1 3 0V13m0 0v2c0 4-2.5 7-6.5 7-3 0-4.3-1-5.7-3l-2.4-4.1c-.6-1 .1-2.4 1.3-2.4.5 0 1 .2 1.3.7L9 15" stroke="#5a1c2c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 12.5V6a1.5 1.5 0 0 1 3 0v5m0 0V4.5a1.5 1.5 0 0 1 3 0V11m0 .3V6.8a1.5 1.5 0 0 1 3 0V13m0 0v2c0 4-2.5 7-6.5 7-3 0-4.3-1-5.7-3l-2.4-4.1c-.6-1 .1-2.4 1.3-2.4.5 0 1 .2 1.3.7L9 15" stroke="#f3e6c9" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <i class="spark spark--1"></i>
         <i class="spark spark--2"></i>
