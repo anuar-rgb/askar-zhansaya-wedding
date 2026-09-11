@@ -245,7 +245,7 @@ section,
 .invite-card__addressees {
   position: relative;
   z-index: 1;
-  font-family: 'Playfair Display', serif;
+  font-family: 'PT Serif', serif;
   font-style: italic;
   font-size: 13px;
   line-height: 1.6;
